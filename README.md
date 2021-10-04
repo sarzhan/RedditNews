@@ -1,7 +1,7 @@
 # RedditNews
 ===================
 
-A simple application to display the top news on the site [Reddit API](https://www.reddit.com/top) and save your favorites to a local database.
+A simple application to display the top news from the [Reddit API](https://www.reddit.com/top) site and save your favorites to a local database.
 
 ### Architecture
 
