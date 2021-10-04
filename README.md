@@ -10,9 +10,9 @@ A simple application to display the top news on the site [Reddit API](https://ww
 
 ### Preview
 <p align="center">
-<img src="Screenshot_2021-10-04-07-56-38-90.jpg" width="32%"/>
-<img src="Screenshot_2021-10-04-07-56-50-71.jpg" width="32%"/>
-<img src="Screenshot_2021-10-04-07-57-13-92.jpg" width="32%"/>
+<img src="data/Screenshot_2021-10-04-07-56-38-90.jpg" width="32%"/>
+<img src="data/Screenshot_2021-10-04-07-56-50-71.jpg" width="32%"/>
+<img src="data/Screenshot_2021-10-04-07-57-13-92.jpg" width="32%"/>
 </p>
 
 ### Libraries
