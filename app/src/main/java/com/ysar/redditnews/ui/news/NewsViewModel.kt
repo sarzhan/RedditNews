@@ -24,8 +24,9 @@ class NewsViewModel @Inject constructor(
     private val getNewsRxRepository: GetNewsRxRepository,
 ) : ViewModel() {
 
-    val favorites = MutableLiveData<List<RedditNewsItem>>()
-    val compositeDisposable = CompositeDisposable()
+    private val _favorites = MutableLiveData<List<RedditNewsItem>>()
+    val favorites: LiveData<List<RedditNewsItem>> = _favorites
+    private val compositeDisposable = CompositeDisposable()
     val isLoading = MutableLiveData(false)
 
    @ExperimentalCoroutinesApi
@@ -51,7 +52,7 @@ class NewsViewModel @Inject constructor(
         return favorites
     }
 
-    fun setLoading(isVisible: Boolean) {
+    private fun setLoading(isVisible: Boolean) {
         this.isLoading.value = isVisible
     }
 
@@ -62,10 +63,10 @@ class NewsViewModel @Inject constructor(
 
     private fun fetchFavorites(users: List<RedditNewsItem>) {
         setLoading(false)
-        this.favorites.value = users
+        this._favorites.value = users
     }
 
-    fun loadFavorite(item: RedditNewsItem): RedditNewsItem? {
+    private fun loadFavorite(item: RedditNewsItem): RedditNewsItem? {
         return dataBaseRepository.getFavoriteByRecipeId(item.toEntity())?.toModel()
     }
 
