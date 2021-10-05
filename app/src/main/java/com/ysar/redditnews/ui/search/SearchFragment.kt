@@ -83,14 +83,6 @@ class SearchFragment : Fragment(), OnNewsFragmentInteractionListener {
             binding.searchEmptyContainer.visibility = if (mAdapter.itemCount == 0 ) View.VISIBLE else View.GONE
         }
 
-        arguments?.let {bundle ->
-            mQuery = SearchFragmentArgs.fromBundle(bundle).text
-            mQuery?.let { nonNullSearchQuery ->
-                mDisposable.add(viewModel.searchNews(nonNullSearchQuery).subscribe {
-                    mAdapter.submitData(lifecycle, it)
-                })
-            }
-        }
         return binding.root
     }
 
@@ -105,9 +97,6 @@ class SearchFragment : Fragment(), OnNewsFragmentInteractionListener {
         mMenuSearchItem?.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         searchView.isIconified = false
 
-        mQuery?.let {
-            searchView.setQuery(it, false)
-        }
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
@@ -127,15 +116,6 @@ class SearchFragment : Fragment(), OnNewsFragmentInteractionListener {
             activity?.onBackPressed()
             false
         }
-    }
-
-
-    override fun loadFavorite(item: RedditNewsItem): RedditNewsItem? {
-        return viewModel.loadFavorite(item)
-    }
-
-    override fun removeFavorite(item: RedditNewsItem) {
-        viewModel.deleteFavoriteFromDB(item)
     }
 
     override fun addOrRemoveFavorites(item: RedditNewsItem) {

@@ -11,10 +11,6 @@
         android:label=""
         android:name="com.ysar.redditnews.ui.search.SearchFragment"
         tools:layout="@layout/fragment_search" >
-
-        <argument
-            android:name="text"
-            app:argType="string" />
     </fragment>
 
 </navigation>

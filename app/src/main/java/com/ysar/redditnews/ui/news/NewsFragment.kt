@@ -79,15 +79,6 @@ class NewsFragment : Fragment(), OnNewsFragmentInteractionListener {
 
     }
 
-
-    override fun loadFavorite(item: RedditNewsItem): RedditNewsItem? {
-        return viewModel.loadFavorite(item)
-    }
-
-    override fun removeFavorite(item: RedditNewsItem) {
-        viewModel.deleteFavoriteFromDB(item)
-    }
-
     override fun addOrRemoveFavorites(item: RedditNewsItem) {
         viewModel.addOrRemoveAsFavorite(item)
         mAdapter.notifyDataSetChanged()

@@ -8,10 +8,6 @@ import com.ysar.redditnews.data.model.RedditNewsItem
  */
 interface OnNewsFragmentInteractionListener {
 
-    fun loadFavorite(item: RedditNewsItem): RedditNewsItem?
-
-    fun removeFavorite(item: RedditNewsItem)
-
     fun addOrRemoveFavorites(item: RedditNewsItem)
 
     fun isFavorite(item: RedditNewsItem): Boolean
